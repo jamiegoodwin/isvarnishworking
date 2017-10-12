@@ -275,7 +275,7 @@
 				<div class="col-sm-6">
 					<hr class="visible-xs-block" />
 					<p>Built with <i class="fa fa-heart"></i> by and <i class="fa fa-copyright"></i> <?php echo date('Y'); ?> <a href="https://jamiegoodwin.uk/?utm_campaign=Development&utm_source=isvarnishworking.uk" target="_blank"><img class="me img-circle" src="https://en.gravatar.com/userimage/29390999/bae7a8e03860f470758961a20d38f70e.jpg?size=50" /> Jamie Goodwin</a></p>
-					<p class="small">V2.1</p>
+					<p class="small">V2.2</p>
 				</div>
 			</div>
 		</div>
@@ -302,7 +302,8 @@
 					var
 						$domain = encodeURIComponent($('#domain').val()),
 						$ua = encodeURIComponent($('#ua').val()),
-						$gadmn = ($('#private').prop('checked')) ? 'Private' : $domain;
+						$gadmn = ($('#private').prop('checked')) ? 'Private' : $domain,
+						$service = 'https://isvarnishworking-kwvdvuzaux.now.sh/';
 
 					// GA check
 					ga('send', 'event', 'Check', 'Submit', $gadmn);
@@ -321,7 +322,7 @@
 						.html('Checking...');
 
 					// Download headers from checked site - this loads handleResponse()
-					$.getScript('https://isvarnishworking-jmrccqwsbd.now.sh?url=' + $domain + '&ua=' + $ua)
+					$.getScript($service + '?url=' + $domain + '&ua=' + $ua)
 						.fail(function() {
 							// GA fail
 							ga('send', 'event', 'Check', 'Error', $gadmn);
